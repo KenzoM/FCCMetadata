@@ -1,5 +1,5 @@
 <p>Submit a file to view its filesize.</p>
-<form class="" action="index.html" method="post">
-  <input type="file" name="name">
-  <input type="submit">
+<form action="/api/filemeta" method="post" enctype="multipart/form-data">
+  <input type="file" name="fileExamine">
+  <input type="submit" value="Upload File" name="submit">
 </form>
