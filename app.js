@@ -3,10 +3,15 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var multer = require('multer');
+var path = require('path')
 var port = 3000;
 
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get('/',function(req, res){
-  res.send('hello world')
+  res.sendFile(path.join(__dirname, 'views/index.html'));
 })
 
 
