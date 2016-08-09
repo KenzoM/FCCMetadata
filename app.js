@@ -19,7 +19,8 @@ app.get('/',function(req,res){
 app.post('/api/filemeta',function(req,res){
     upload(req,res,function(err) {
         if(err) {
-            return res.end("Error uploading file.");
+          console.log(err,'this is error')
+          return res.end("Error uploading file.");
         }
         console.log(req.file)
         res.json({size: req.file.size});
@@ -27,5 +28,5 @@ app.post('/api/filemeta',function(req,res){
 });
 
 app.listen(port,function(){
-    console.log("Working on port 3000");
+    console.log("Working on port", port );
 });
