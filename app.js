@@ -21,7 +21,7 @@ app.post('/api/filemeta',function(req,res){
             return res.end("Error uploading file.");
         }
         console.log(req.file)
-        res.end("File is uploaded");
+        res.json({size: req.file.size});
     });
 });
 
