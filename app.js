@@ -13,18 +13,16 @@ var upload = multer({ storage : storage}).single('fileExamine');
 var port = process.env.PORT || 8000
 
 app.get('/',function(req,res){
-      res.sendFile(__dirname + "/views/index.html");
+  res.sendFile(__dirname + "/views/index.html");
 });
 
 app.post('/api/filemeta',function(req,res){
-    upload(req,res,function(err) {
-        if(err) {
-          console.log(err,'this is error')
-          return res.end("Error uploading file.");
-        }
-        console.log(req.file)
-        res.json({size: req.file.size});
-    });
+  upload(req,res,function(err) {
+      if(err) {
+        return res.end("Error uploading file.");
+      }
+      res.json({size: req.file.size});
+  });
 });
 
 app.listen(port,function(){
