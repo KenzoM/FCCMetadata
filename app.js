@@ -10,6 +10,7 @@ var storage = multer.diskStorage({
   }
 });
 var upload = multer({ storage : storage}).single('fileExamine');
+var port = process.env.PORT || 8000
 
 app.get('/',function(req,res){
       res.sendFile(__dirname + "/views/index.html");
@@ -25,6 +26,6 @@ app.post('/api/filemeta',function(req,res){
     });
 });
 
-app.listen(3000,function(){
+app.listen(port,function(){
     console.log("Working on port 3000");
 });
