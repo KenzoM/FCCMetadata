@@ -19,6 +19,7 @@ app.get('/',function(req,res){
 app.post('/api/filemeta',function(req,res){
   upload(req,res,function(err) {
       if(err) {
+        console.log(err,'this is error message!!!')
         return res.end("Error uploading file.");
       }
       res.json({size: req.file.size});
